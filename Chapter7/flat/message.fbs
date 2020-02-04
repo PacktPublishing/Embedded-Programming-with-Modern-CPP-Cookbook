@@ -1,0 +1,4 @@
+struct Message {
+  x: int;
+  y: int;
+}
