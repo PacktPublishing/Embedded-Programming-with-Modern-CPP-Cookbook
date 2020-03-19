@@ -33,7 +33,7 @@ std::string ReadMessage(int fd) {
 }
 
 int main(void) {
-  int fd = open("envconv.data", O_RDONLY);
+  int fd = open("envconv.data", O_RDONLY, 0666);
   while(true) {
     try {
       auto s = ReadMessage(fd);

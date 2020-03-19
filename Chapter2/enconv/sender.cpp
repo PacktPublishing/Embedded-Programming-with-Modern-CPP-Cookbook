@@ -26,7 +26,7 @@ void WriteMessage(int fd, const char* str) {
 }
 
 int main(int argc, char** argv) {
-  int fd = open("envconv.data", O_WRONLY|O_APPEND|O_CREAT);
+  int fd = open("envconv.data", O_WRONLY|O_APPEND|O_CREAT, 0666);
   for (int i = 1; i < argc; i++) {
     WriteMessage(fd, argv[i]);
   }
