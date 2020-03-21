@@ -42,7 +42,7 @@ class ObjectPool {
 
 
 struct Point {
-  float x, y;
+  int x, y;
   void deinit() { std::cout << "Hello " << x << ", " << y << "\n"; }
 };
 
