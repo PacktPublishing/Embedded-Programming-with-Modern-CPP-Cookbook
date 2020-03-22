@@ -3,16 +3,10 @@ project(threads)
 add_executable(threads threads.cpp)
 
 set(CMAKE_SYSTEM_NAME Linux)
-#set(CMAKE_SYSTEM_PROCESSOR arm)
+set(CMAKE_SYSTEM_PROCESSOR arm)
 
-SET(CMAKE_CXX_FLAGS_RELEASE "--std=c++11") 
-SET(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_RELEASE} -g -DDEBUG") 
+SET(CMAKE_CXX_FLAGS "--std=c++11")
 target_link_libraries(threads pthread)
 
-#set(CMAKE_C_COMPILER /usr/bin/arm-linux-gnueabi-gcc)
-#set(CMAKE_CXX_COMPILER /usr/bin/arm-linux-gnueabi-g++)
+set(CMAKE_CXX_COMPILER /usr/bin/arm-linux-gnueabi-g++)
 
-set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
-set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
-set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
-set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
