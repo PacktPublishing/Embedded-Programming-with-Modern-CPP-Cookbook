@@ -14,7 +14,7 @@ void sleep_for(int count, auto delay) {
   }
 }
 
-void sleep_until(int count, auto delay) {
+void sleep_until(int count, std::chrono::milliseconds delay) {
   auto wake_up = std::chrono::system_clock::now();
   for (int i = 0; i < 10; i++) {
     wake_up += delay;
