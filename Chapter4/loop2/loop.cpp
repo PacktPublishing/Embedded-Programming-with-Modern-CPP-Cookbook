@@ -13,10 +13,12 @@ void runner(std::chrono::milliseconds limit,
   auto end = std::chrono::system_clock::now();
   std::chrono::milliseconds delta =
       std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-  syslog(LOG_DEBUG, "Delta is %ld", delta);
+  syslog(LOG_DEBUG, "Delta is %ld",
+         static_cast<long int>(delta.count()));
   if (delta > limit) {
     syslog(LOG_ERR, "Execution time %ld ms exceeded %ld ms limit",
-           delta.count(), limit.count());
+           static_cast<long int>(delta.count()),
+	         static_cast<long int>(limit.count()));
     throw std::runtime_error("Time limit exceeded");
   }
 }

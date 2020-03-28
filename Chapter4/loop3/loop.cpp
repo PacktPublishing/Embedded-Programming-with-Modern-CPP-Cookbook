@@ -20,7 +20,9 @@ void runner(std::chrono::milliseconds limit,
   auto end = std::chrono::system_clock::now();
   std::chrono::milliseconds delta =
       std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-  LOG_DEBUG("Delay: %ld ms, max: %ld ms\n", delta.count(), limit.count());
+  LOG_DEBUG("Delay: %ld ms, max: %ld ms\n", 
+            static_cast<long int>(delta.count()),
+	          static_cast<long int>(limit.count()));
   if (delta > limit) {
     throw std::runtime_error("Time limit exceeded");
   }
