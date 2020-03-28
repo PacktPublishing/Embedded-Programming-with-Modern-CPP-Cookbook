@@ -37,14 +37,13 @@ void Display(const char* prefix, int err, const std::string& result) {
 }
 
 void Test(int input) {
-  std::string result;
-  int err;
+  std::string outputResult;
+  int err = Receive(input, outputResult);
+  Display(" Receive 1", err, outputResult);
 
-  err = Receive(input, result);
-  Display(" Receive 1", err, result);
-
-  result = Receive(input, err);
-  Display(" Receive 2", err, result);
+  int outputErr = -1;
+  std::string result = Receive(input, outputErr);
+  Display(" Receive 2", outputErr, result);
 
   std::pair<int, std::string> ret = Receive(input);
   Display(" Receive 3", ret.first, ret.second);

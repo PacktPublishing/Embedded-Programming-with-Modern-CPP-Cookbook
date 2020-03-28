@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdint.h>
 
 class Complex {
   char* ptr;
@@ -36,7 +37,7 @@ class Complex {
 };
 
 Complex small(100);
-Complex large(100000000000000l);
+Complex large(SIZE_MAX);
 
 int main() {
   std::cout << "Small object is " << (small.IsValid()? "valid" : "invalid")

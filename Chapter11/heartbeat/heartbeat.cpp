@@ -40,12 +40,20 @@ class Heartbeat {
     bool Monitor() {
       struct pollfd fds[1];
       fds[0].fd = channel[0];
-      fds[0].events = POLLIN | POLLERR | POLLHUP;
+      fds[0].events = POLLIN;
       bool takeover = true;
       bool polling = true;
       while(polling) {
+        fds[0].revents = 0;
         int rv = poll(fds, 1, delay.count());
-        if (rv) {
+        if (rv) { 
+          if (fds[0].revents & (POLLERR | POLLHUP)) {
+            std::cout << "Polling error occured" << std::endl;
+            takeover = false;
+            polling = false;
+            break;
+          }
+
           Health status;
           int count = read(fds[0].fd, &status, sizeof(status));
           if (count < sizeof(status)) {
@@ -70,7 +78,9 @@ class Heartbeat {
           std::cout << "Timeout" << std::endl;
           polling = false;
         } else {
-          std::cout << "Error reading heartbeat data, retrying" << std::endl;
+          if (errno != EINTR) {
+            std::cout << "Error reading heartbeat data, retrying" << std::endl;
+          }
         }
       }
       return takeover;

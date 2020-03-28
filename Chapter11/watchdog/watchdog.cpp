@@ -33,4 +33,5 @@ int main() {
     std::this_thread::sleep_for(delay);
     delay += 300ms;
   }
+  return 0;
 }
