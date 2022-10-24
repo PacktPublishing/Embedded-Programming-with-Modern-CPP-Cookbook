@@ -62,3 +62,7 @@ On page 192 "Create a file called CMakeLists.txt in the loop subdirectory" shoul
 
 On page 197 "Create a file called CMakeLists.txt in the loop subdirectory" should read
             "Create a file called CMakeLists.txt in the async subdirectory".
+### Download a free PDF
+
+ <i>If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost.<br>Simply click on the link to claim your free PDF.</i>
+<p align="center"> <a href="https://packt.link/free-ebook/9781838821043">https://packt.link/free-ebook/9781838821043 </a> </p>
