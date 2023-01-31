@@ -53,6 +53,7 @@ struct Message {
 
 std::ostream& operator<<(std::ostream& o, const Message& m) {
   o << "(x=" << m.x << ", y=" << m.y << ")";
+  return o;
 }
 
 void DoWrites() {
